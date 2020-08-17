@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 
 /**
  * create by 许庆之 on 2020/8/6.
+ * 反射工具类， 根据target set和get属性
  */
 public class ReflectionUtil {
 
