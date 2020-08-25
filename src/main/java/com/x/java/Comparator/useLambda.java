@@ -22,17 +22,17 @@ public class useLambda {
         //humans.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));//简化
     }
 
-    // 增强版的Comparator接口 ； reversed() 逆序（comparator中的default实现）
+    /** 增强版的Comparator接口 ； reversed() 逆序（comparator中的default实现） */
     @Test
     public void test01(){
         List<Human> humans = new ArrayList<>();
         humans.add(new Human("Sarah", 10));
         humans.add(new Human("Jack", 12));
 
-        Collections.sort(humans, Comparator.comparing(Human::getName).reversed());
+        Collections.sort(humans, Comparator.comparing((Human human) -> human.getName()).reversed());
     }
 
-    //  组合排序
+    /** 组合排序 */
     @Test
     public void test02(){
         List<Human> humans = new ArrayList<>();

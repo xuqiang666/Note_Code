@@ -34,7 +34,7 @@ public class SortByValue {
         }
     }
 
-    // 使用 commonns的CompareToBuilder组合排序 ，传入比较器
+    /** 使用 commonns的CompareToBuilder组合排序 ，传入比较器*/
     @Test
     public void test01(){
         List<Employee> list = Arrays.asList(new Employee(1, "A", "B", 34),
@@ -55,7 +55,7 @@ public class SortByValue {
         System.out.println(list);
     }
 
-    // 使用 guava的ComparisonChain比较器链组合排序
+    /** 使用 guava的ComparisonChain比较器链组合排序 */
     @Test
     public void test03() {
         List<Employee> list = Arrays.asList(new Employee(1, "A", "B", 34),
