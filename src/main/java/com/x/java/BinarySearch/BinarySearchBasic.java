@@ -40,4 +40,42 @@ public class BinarySearchBasic {
         int num = searcher.search(array,77);
         System.out.println(num);
     }
+
+    /**
+    在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。
+    请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+     [
+     [1,   4,  7, 11, 15],
+     [2,   5,  8, 12, 19],
+     [3,   6,  9, 16, 22],
+     [10, 13, 14, 17, 24],
+     [18, 21, 23, 26, 30]
+     ]
+    */
+    class Solution {
+        public boolean findNumberIn2DArray(int[][] matrix, int target) {
+            /*array==null：数组为空
+            array.length==0：行为0，即 array = []
+            array.length==1 && array[0].length == 0：行为1，列为0，即 array = [[]]]
+            */
+            if(matrix==null||matrix.length==0||matrix[0].length==0) {
+                return false;
+            }
+            int m = matrix.length - 1;
+            // 此处注意防止数组为空时下表越界问题
+            int n = matrix[0].length;
+            //从二维数组的右上角看下来就是一个BinarySearchTree
+            int i = 0, j = n-1;
+            while (i <= m && j >= 0) {
+                if (target < matrix[i][j]) {
+                    j--;
+                } else if (target > matrix[i][j]) {
+                    i++;
+                } else {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 }
