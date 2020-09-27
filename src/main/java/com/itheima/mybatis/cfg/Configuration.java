@@ -21,7 +21,9 @@ public class Configuration {
     }
 
     public void setMappers(Map<String, Mapper> mappers) {
-        this.mappers.putAll(mappers);//此处需要使用追加的方式
+        //此处需要使用追加的方式
+        // putAll 合并相同的key，用后面的覆盖前面的
+        this.mappers.putAll(mappers);
     }
 
     public String getDriver() {

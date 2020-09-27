@@ -1,7 +1,5 @@
 package com.itheima.mybatis.utils;
 
-//import com.itheima.mybatis.annotations.Select;
-
 import com.itheima.mybatis.annotations.Select;
 import com.itheima.mybatis.cfg.Configuration;
 import com.itheima.mybatis.cfg.Mapper;
@@ -21,8 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 黑马程序员
- * @Company http://www.ithiema.com
+ * @author
  *  用于解析配置文件
  */
 public class XMLConfigBuilder {
