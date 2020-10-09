@@ -1,4 +1,4 @@
-package com.x.java.code;
+package com.algorithm.code;
 
 
 import org.junit.Test;

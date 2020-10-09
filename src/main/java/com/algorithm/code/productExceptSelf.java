@@ -1,6 +1,4 @@
-package com.x.java.code;
-
-import org.junit.Test;
+package com.algorithm.code;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +7,7 @@ import java.io.InputStreamReader;
 /**
  * Create By  xqz on 2020/8/28.
  */
-class Solution {
+public class productExceptSelf {
 
     public int[] productExceptSelf(int[] nums) {
         int pre = 1;int suf = 1;
@@ -26,9 +24,7 @@ class Solution {
         }
         return out;
     }
-}
 
-public class productExceptSelf {
     public static int[] stringToIntegerArray(String input) {
         input = input.trim();
         input = input.substring(1, input.length() - 1);
@@ -68,7 +64,7 @@ public class productExceptSelf {
         while ((line = in.readLine()) != null) {
             int[] nums = stringToIntegerArray(line);
 
-            int[] ret = new Solution().productExceptSelf(nums);
+            int[] ret = new productExceptSelf().productExceptSelf(nums);
 
             String out = integerArrayToString(ret);
 

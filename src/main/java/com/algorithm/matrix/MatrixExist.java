@@ -1,9 +1,51 @@
-package com.x.java.matrix;
+package com.algorithm.matrix;
 
 /**
  * Create By  xqz on 2020/9/16.
+ * 深度优先搜索,查询矩阵中是否有此路径  ；12矩阵路径
+ * 请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子。例如，在下面的3×4的矩阵中包含一条字符串“bfce”的路径（路径中的字母用加粗标出）。
  */
 public class MatrixExist {
+
+    static class Solution2 {
+        public boolean exist(char[][] board, String word) {
+            if (board == null || board[0] == null || board.length == 0 || board[0].length == 0 || word == null || word.equals("")) {
+                return false;
+            }
+            boolean[][] isVisited = new boolean[board.length][board[0].length];
+            char[] chs = word.toCharArray();
+
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    if (board[i][j] == chs[0]) {
+                        if (bfs(board, i, j, isVisited, chs, 0)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        private boolean bfs(char[][] board, int i, int j, boolean[][] isVisited, char[] chs, int index) {
+
+            if (index == chs.length) {
+                return true;
+            }
+            if (i < 0 || j < 0 || i == board.length || j == board[0].length || isVisited[i][j] || board[i][j] != chs[index]) {
+                return false;
+            }
+            isVisited[i][j] = true;
+            boolean res = bfs(board, i + 1, j, isVisited, chs, index + 1)
+                    || bfs(board, i - 1, j, isVisited, chs, index + 1)
+                    || bfs(board, i, j + 1, isVisited, chs, index + 1)
+                    || bfs(board, i, j - 1, isVisited, chs, index + 1);
+            //当res为假时取消标记  上面的解法就少考虑了这个地方
+            isVisited[i][j] = false;
+            return res;
+        }
+    }
+
     static class Solution {
         public boolean exist(char[][] board, String word) {
             char[][] bb = new char[board.length+2][board[0].length+2];
@@ -53,42 +95,5 @@ public class MatrixExist {
         System.out.println(x);
     }
 
-    static class Solution2 {
-        public boolean exist(char[][] board, String word) {
-            if (board == null || board[0] == null || board.length == 0 || board[0].length == 0 || word == null || word.equals("")) {
-                return false;
-            }
-            boolean[][] isVisited = new boolean[board.length][board[0].length];
-            char[] chs = word.toCharArray();
 
-            for (int i = 0; i < board.length; i++) {
-                for (int j = 0; j < board[0].length; j++) {
-                    if (board[i][j] == chs[0]) {
-                        if (bfs(board, i, j, isVisited, chs, 0)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
-        private boolean bfs(char[][] board, int i, int j, boolean[][] isVisited, char[] chs, int index) {
-
-            if (index == chs.length) {
-                return true;
-            }
-            if (i < 0 || j < 0 || i == board.length || j == board[0].length || isVisited[i][j] || board[i][j] != chs[index]) {
-                return false;
-            }
-            isVisited[i][j] = true;
-            boolean res = bfs(board, i + 1, j, isVisited, chs, index + 1)
-                    || bfs(board, i - 1, j, isVisited, chs, index + 1)
-                    || bfs(board, i, j + 1, isVisited, chs, index + 1)
-                    || bfs(board, i, j - 1, isVisited, chs, index + 1);
-            //当res为假时取消标记  上面的解法就少考虑了这个地方
-            isVisited[i][j] = false;
-            return res;
-        }
-    }
 }

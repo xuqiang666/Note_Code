@@ -1,10 +1,6 @@
-package com.x.java.code;
+package com.algorithm.code;
 
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.stream.IntStream;
 
 /**
  * Create By  xqz on 2020/8/29.

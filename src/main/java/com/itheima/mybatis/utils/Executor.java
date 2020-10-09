@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * @author
  * 负责执行SQL语句，并且封装结果集
+ * mybatis 中 由sqlsession生成Executor
  */
 public class Executor {
 

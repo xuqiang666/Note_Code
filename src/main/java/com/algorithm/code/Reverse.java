@@ -1,4 +1,4 @@
-package com.x.java.code;
+package com.algorithm.code;
 
 /**
  * create by 许庆之 on 2020/8/3.
