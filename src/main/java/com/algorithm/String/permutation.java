@@ -1,6 +1,8 @@
 package com.algorithm.String;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * @Author: 许庆之 on 2020/10/9.
@@ -8,9 +10,11 @@ import java.util.HashSet;
  * 38.字符串的全排列
  * 输入一个字符串，打印出该字符串中字符的所有排列。
  * 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
- * 63ms\45mb
+ *
  */
 public class permutation {
+
+    /** 63ms\45mb*/
     public String[] permutation(String s) {
         if(s==null||s.length()==0) return new String[0];
         boolean[] visited = new boolean[s.length()];
@@ -32,11 +36,45 @@ public class permutation {
             visited[i]=false;
         }
     }
+
     public static void main(String[] args) {
-        String s = "abc";
-        String[] res = new permutation().permutation(s);
-        for (String str:res){
-            System.out.println(str);
+        long start = System.currentTimeMillis();
+        String s = "abcdddd";
+        String[] res = new permutation().permutation2(s);
+//        for (String str:res){
+//            System.out.println(str);
+//        }
+        System.out.println(System.currentTimeMillis()-start+" ms");
+    }
+
+
+    /**  9 ms	42.8 MB   一位一位固定*/
+    public String[] permutation2(String s) {
+        if(s==null || s.length()==0) return new String[0];
+        List<String> res = new ArrayList<>();
+        char[] chars = s.toCharArray();
+        dfs2(0,res,chars);
+        return res.toArray(new String[res.size()]);
+    }
+    private void dfs2(int x,List<String> res,char[] chars){
+        if(x==chars.length-1){
+            res.add(String.valueOf(chars));
+            return;
         }
+        HashSet<Character> set = new HashSet<>();
+        for (int i = x; i < chars.length; i++) {
+            if (set.contains(chars[i])){
+                continue;
+            }
+            set.add(chars[i]);
+            swap(x,i,chars);
+            dfs2(x+1,res,chars);
+            swap(x,i,chars);
+        }
+    }
+    private void swap(int i,int j,char[] chars){
+        char temp = chars[i];
+        chars[i] = chars[j];
+        chars[j] = temp;
     }
 }
