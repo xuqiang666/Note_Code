@@ -3,10 +3,16 @@ package com.itheima.test;
 import com.itheima.dao.IRoleDao;
 import com.itheima.domain.Role;
 import com.itheima.mybatis.io.Resources;
+import com.itheima.mybatis.mybatis_Spring.IUserDao;
+import com.itheima.mybatis.mybatis_Spring.MapperFactoryBean;
 import com.itheima.mybatis.sqlsession.SqlSession;
 import com.itheima.mybatis.sqlsession.SqlSessionFactory;
 import com.itheima.mybatis.sqlsession.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.InputStream;
 import java.util.List;
@@ -17,6 +23,7 @@ import java.util.List;
  * mybatis的入门案例
  */
 public class MybatisTest {
+    private Logger logger = LoggerFactory.getLogger(MybatisTest.class);
 
     /**
      * 入门案例
@@ -48,5 +55,14 @@ public class MybatisTest {
     @Test
     public void test01(){
         ThreadLocal tl = new ThreadLocal();
+    }
+
+    /** 测试spring环境中的mybatis*/
+    @Test
+    public void test_IUserDao() {
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("spring-config.xml");
+        IUserDao userDao = beanFactory.getBean("userDao", IUserDao.class);
+        String res = userDao.queryUserInfo("100001");
+        logger.info("测试结果：{}", res);
     }
 }

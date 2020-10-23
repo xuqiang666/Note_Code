@@ -28,6 +28,7 @@ public class DefaultSqlSession implements SqlSession {
      * @param <T>
      * @return
      */
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T getMapper(Class<T> daoInterfaceClass) {
         return (T) Proxy.newProxyInstance(daoInterfaceClass.getClassLoader(),

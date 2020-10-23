@@ -3,7 +3,7 @@ package com.x.java;
 /**
  * @Author: 许庆之 on 2020/10/14.
  *
- *      堆； 构造，插入，删除最小
+ *      堆； 构造，插入，删除最小 方法
  */
 public class BinaryHeap {
 
