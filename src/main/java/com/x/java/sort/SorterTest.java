@@ -2,7 +2,7 @@ package com.x.java.sort;
 
 import org.junit.Test;
 
-import java.util.Comparator;
+import java.util.*;
 
 /**
  * create by 许庆之 on 2020/8/6.
@@ -19,6 +19,10 @@ public class SorterTest {
         for(int i=0;i<=a.length-1;i++){
             System.out.print(a[i]+" ");
         }
+
+        List<Integer> list = new ArrayList<>(Arrays.asList(a));
+        int i = Collections.binarySearch(list, 6);
+        System.out.println(i);
     }
 
     //  冒泡排序
@@ -50,3 +54,4 @@ public class SorterTest {
         }
     }
 }
+
