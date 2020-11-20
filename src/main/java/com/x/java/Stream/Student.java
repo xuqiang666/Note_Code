@@ -1,4 +1,4 @@
-package com.x.java.Collector;
+package com.x.java.Stream;
 
 /**
  * @Author: 许庆之 on 2020/8/26.

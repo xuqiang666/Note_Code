@@ -1,4 +1,4 @@
-package com.x.java.Comparator;
+package com.x.java.Stream.Comparator;
 
 import com.google.common.collect.ComparisonChain;
 import com.x.java.Entity.Employee;

@@ -1,4 +1,4 @@
-package com.x.java.Comparator;
+package com.x.java.Stream.Comparator;
 
 import com.x.java.Entity.Human;
 import org.junit.Test;

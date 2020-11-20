@@ -1,4 +1,4 @@
-package com.x.java.Collector;
+package com.x.java.Stream;
 
 import java.math.BigDecimal;
 
