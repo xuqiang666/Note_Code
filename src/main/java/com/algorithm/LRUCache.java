@@ -1,7 +1,7 @@
 package com.algorithm;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Author: 许庆之 on 2020/11/20.
@@ -98,4 +98,5 @@ public class LRUCache<k,v> {
             this.value = value;
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package com.x.java.Stream;
+package com.x.Stream;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;

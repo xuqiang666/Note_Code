@@ -1,7 +1,6 @@
-package com.x.java.Stream;
+package com.x.Stream;
 
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
