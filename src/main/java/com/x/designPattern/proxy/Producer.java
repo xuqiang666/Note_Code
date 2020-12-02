@@ -1,4 +1,4 @@
-package com.x.proxy;
+package com.x.designPattern.proxy;
 
 /**
  * create by 许庆之 on 2020/2/26.

@@ -18,7 +18,7 @@ public class RegisterBeanFactory implements BeanDefinitionRegistryPostProcessor 
 
         GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
         beanDefinition.setBeanClass(MapperFactoryBean.class);
-        beanDefinition.setScope("singleton");
+        beanDefinition.setScope("Singleton");
         beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(IUserDao.class);
 
         BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(beanDefinition, "userDao");

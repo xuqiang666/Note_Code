@@ -1,4 +1,4 @@
-package com.x.proxy;
+package com.x.designPattern.proxy;
 
 import org.junit.Test;
 
@@ -59,7 +59,7 @@ public class MapperProxy implements InvocationHandler {
     //ID:1
     //Name:zhangsan
     //Age:18
-    //com.x.proxy.MapperProxy@46f7f36a
+    //MapperProxy@46f7f36a
 
     /** mybatis 源码实现
      *  @Override
