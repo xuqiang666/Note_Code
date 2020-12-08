@@ -438,7 +438,7 @@ public class W3cXml {
                     return info.getValue();
                 }
             }
-        };
+        }
         return null;
 
     }
