@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>20.0</version>
+            <version>25.0-jre</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -65,7 +65,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>5.2.6.RELEASE</version>
+            <version>5.2.16.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -95,28 +95,39 @@
             <artifactId>dhcc-core</artifactId>
             <version>2.1.1.7</version>
         </dependency> -->
-        <dependency>
-            <groupId>com.dhcc.framework</groupId>
-            <artifactId>dhcc-core</artifactId>
-            <version>3.5.0</version>
-            <!--			<classifier>u1</classifier>-->
-        </dependency>
-        <dependency>
-            <groupId>com.dhcc.components</groupId>
-            <artifactId>dhcc-user-bundle</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dhcc.base</groupId>
-            <artifactId>dhcc-um-client</artifactId>
-            <version>2.1.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.dhcc.framework</groupId>-->
+<!--            <artifactId>dhcc-core</artifactId>-->
+<!--            <version>3.5.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.dhcc.components</groupId>-->
+<!--            <artifactId>dhcc-user-bundle</artifactId>-->
+<!--            <version>1.1.2</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.dhcc.base</groupId>-->
+<!--            <artifactId>dhcc-um-client</artifactId>-->
+<!--            <version>2.1.0</version>-->
+<!--        </dependency>-->
 
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.11.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.2</version>
         </dependency>
     </dependencies>
 
