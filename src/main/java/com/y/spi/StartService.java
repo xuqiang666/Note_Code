@@ -1,11 +1,11 @@
-package com.x.spi;
+package com.y.spi;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Iterator;
 
-public class StartService{
+public class StartService {
 
     private static Logger logger = LoggerFactory.getLogger(StartService.class);
 
