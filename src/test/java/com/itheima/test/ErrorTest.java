@@ -1,6 +1,7 @@
 package com.itheima.test;
 
 import lombok.SneakyThrows;
+import org.junit.Test;
 
 public class ErrorTest{
 
@@ -29,6 +30,23 @@ public class ErrorTest{
             int b = a/0;
         }catch (Exception e){
             throw new RuntimeException();
+        }
+    }
+
+    /**
+     * 测试 finally中的throw
+     */
+    @Test
+    public void test345() throws Exception{
+        try {
+            int a = 0;
+            int b = a/0;
+        } catch (Exception e) {
+            System.out.println("catch-01");
+            throw new ClassNotFoundException("sdsd");
+        } finally {
+            System.out.println("finally-02");
+            throw new ClassCastException("sdsd");
         }
     }
 }
