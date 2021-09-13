@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadFactory;
 
 /**
  * @description ：disruptor代码样例。每10ms向disruptor中插入一个元素，消费者读取数据，并打印到终端
- *
+ * 实现多线程环境中真正的无锁化设计，极大的提升并发性能。提供了多个线程可以同时并发安全的往同一队列写入数据，而不加锁
  */
 public class DisruptorMain
 {

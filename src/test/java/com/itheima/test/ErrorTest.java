@@ -43,10 +43,10 @@ public class ErrorTest{
             int b = a/0;
         } catch (Exception e) {
             System.out.println("catch-01");
-            throw new ClassNotFoundException("sdsd");
+            throw new ClassNotFoundException("catch-exception");
         } finally {
             System.out.println("finally-02");
-            throw new ClassCastException("sdsd");
+            throw new ClassCastException("finally-exception");
         }
     }
 }
