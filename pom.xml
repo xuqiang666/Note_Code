@@ -11,7 +11,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.1</version>
+            <version>4.12</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -144,6 +144,11 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>3.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.3.7</version>
         </dependency>
     </dependencies>
 
