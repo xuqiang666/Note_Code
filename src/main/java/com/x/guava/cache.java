@@ -1,7 +1,7 @@
 package com.x.guava;
 
 import com.google.common.cache.*;
-import com.itheima.domain.User;
+import com.xqz.domain.User;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;

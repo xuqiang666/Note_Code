@@ -79,7 +79,8 @@ public class CompletableFutureDemo {
         CompletableFuture<String> c = CompletableFuture.supplyAsync(() -> "!");
 
         CompletableFuture all = CompletableFuture.allOf(a,b,c);
-        all.get();
+        String resultall = (String) all.get();
+        System.out.println(resultall);
 
         String result = Stream.of(a, b,c)
                 .map(CompletableFuture::join)

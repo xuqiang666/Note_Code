@@ -5,6 +5,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 测试拒绝策略
+ */
 @Slf4j
 public class T2 {
     public static void main(String[] args) throws Exception{

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.xqz.dao.IRoleDao">
+    <!--配置查询所有-->
+    <select id="findAll" resultType="com.xqz.domain.Role">
+        select * from role
+    </select>
+</mapper>
