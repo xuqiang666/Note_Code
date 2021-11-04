@@ -4,6 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
        default-autowire="byName">
 
-    <bean id="userDao" class="com.itheima.mybatis.mybatis_Spring.RegisterBeanFactory"/>
+    <bean id="userDao" class="com.xqz.mybatis.mybatis_Spring.RegisterBeanFactory"/>
 
 </beans>
