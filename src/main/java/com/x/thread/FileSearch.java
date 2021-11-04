@@ -22,7 +22,8 @@ public class FileSearch implements Runnable{
             try {
                 directoryProcess(file);
             } catch (InterruptedException e) {
-                System.out.printf("%s: The search has been interrupted",
+                // 这里为什么断点能进，但不输出？
+                System.out.printf("%s: The search has been interrupted\n",
                         Thread.currentThread().getName());
             }
         }
@@ -72,15 +73,15 @@ public class FileSearch implements Runnable{
         // Wait for ten seconds
         try {
             // 这里确定了查询的时间
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.MILLISECONDS.sleep(50);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         // Interrupts the thread
-        System.out.println(thread.isInterrupted());
+        System.out.printf("%s\n",thread.isInterrupted());
         thread.interrupt();
-        System.out.println(thread.isInterrupted());
+        System.out.printf("%s\n",thread.isInterrupted());
     }
 
 }

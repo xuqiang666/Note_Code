@@ -25,7 +25,7 @@ public class FutureTest {
         }
     }
 
-    static class CallableTask implements Callable<Integer> {
+    public class CallableTask implements Callable<Integer> {
         @Override
         public Integer call() throws Exception {
             throw new IllegalArgumentException("Callable抛出异常");
@@ -34,9 +34,9 @@ public class FutureTest {
 
 
     /**
-     *  假设有一个带key的链接池，当key存在时，即直接返回key对应的对象；当key不存在时，则建立链接
+     * 假设有一个带key的链接池，当key存在时，即直接返回key对应的对象；当key不存在时，则建立链接
      */
-    private ConcurrentHashMap<String, FutureTask<Connection>> connectionPool = new ConcurrentHashMap<String, FutureTask<Connection>>();
+    private ConcurrentHashMap<String, FutureTask<Connection>> connectionPool = new ConcurrentHashMap<>();
 
     public Connection getConnection(String key) throws Exception {
         FutureTask<Connection> connectionTask = connectionPool.get(key);
