@@ -1,13 +1,13 @@
-package com.x.Stream;
+package com.x.stream;
 
 /**
  * @Author: 许庆之 on 2020/11/20.
  */
-public class User {
+public class Person {
     private int id;
     private String name;
 
-    public User(int id, String name) {
+    public Person(int id, String name) {
         this.id = id;
         this.name = name;
     }

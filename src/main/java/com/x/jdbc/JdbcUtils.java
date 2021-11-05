@@ -1,4 +1,4 @@
-package com.x.JDBC;
+package com.x.jdbc;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.Properties;
  * create by 许庆之 on 2020/3/12.
  * 一般工具类的方法都是静态的方便调用
  */
-public class jdbcUtils {
+public class JdbcUtils {
 
     private static String url;
     private static String username;
@@ -18,13 +18,13 @@ public class jdbcUtils {
     private static String driver;
 
     /*不想传递参数，又要保证工具类的通用性，使用配置文件*/
-    static{
+    static {
         try {
             //读取资源文件获取值
             //1.创建Properties集合类
             Properties pro = new Properties();
             //获取src路径下文件的方式，----》ClassLoader 类加载器
-            ClassLoader classLoader = jdbcUtils.class.getClassLoader();
+            ClassLoader classLoader = JdbcUtils.class.getClassLoader();
             //获取文件的绝对路径
             URL res = classLoader.getResource("db.properties");
             //获取路径的字符串
@@ -47,22 +47,22 @@ public class jdbcUtils {
         return DriverManager.getConnection(url, username, password);
     }
 
-    public static void close(ResultSet rs,Statement st,Connection cn){
-        if(rs!=null){
+    public static void close(ResultSet rs, Statement st, Connection cn) {
+        if (rs != null) {
             try {
                 rs.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-        if(st!=null){
+        if (st != null) {
             try {
                 st.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-        if(cn!=null){
+        if (cn != null) {
             try {
                 cn.close();
             } catch (SQLException e) {
@@ -71,15 +71,15 @@ public class jdbcUtils {
         }
     }
 
-    public static void close(Statement st,Connection cn){
-        if(st!=null){
+    public static void close(Statement st, Connection cn) {
+        if (st != null) {
             try {
                 st.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-        if(cn!=null){
+        if (cn != null) {
             try {
                 cn.close();
             } catch (SQLException e) {

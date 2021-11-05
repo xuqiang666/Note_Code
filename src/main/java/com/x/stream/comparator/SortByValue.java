@@ -1,4 +1,4 @@
-package com.x.Stream.Comparator;
+package com.x.stream.comparator;
 
 import com.google.common.collect.ComparisonChain;
 import com.x.java.Entity.Employee;
@@ -11,8 +11,8 @@ import java.util.*;
  * Create By  xqz on 2020/8/15.
  * 根据map的value进行排序
  * reverse() 方法的实现 ：
- *  如果传入的不是一个比较器，那么就返回一个逆序比较器 ReverseComparator.REVERSE_ORDER = Collections的内部静态类 ReverseComparator ，此类的compare方法 return c2.compareTo(c1);
- *  否则返回 ReverseComparator2（Collections的内部静态类），此类的compare方法 return cmp.compare(t2, t1);
+ * 如果传入的不是一个比较器，那么就返回一个逆序比较器 ReverseComparator.REVERSE_ORDER = Collections的内部静态类 ReverseComparator ，此类的compare方法 return c2.compareTo(c1);
+ * 否则返回 ReverseComparator2（Collections的内部静态类），此类的compare方法 return cmp.compare(t2, t1);
  */
 public class SortByValue {
     public static void main(String[] args) {
@@ -29,14 +29,16 @@ public class SortByValue {
                 return o1.getValue().compareTo(o2.getValue());
             }
         }.reversed());
-        for (Map.Entry<String,String> e:list) {
-            System.out.println(e.getKey()+" : "+e.getValue());
+        for (Map.Entry<String, String> e : list) {
+            System.out.println(e.getKey() + " : " + e.getValue());
         }
     }
 
-    /** 使用 commonns的CompareToBuilder组合排序 ，传入比较器*/
+    /**
+     * 使用 commonns的CompareToBuilder组合排序 ，传入比较器
+     */
     @Test
-    public void test01(){
+    public void test01() {
         List<Employee> list = Arrays.asList(new Employee(1, "A", "B", 34),
                 new Employee(4, "C", "D", 30),
                 new Employee(3, "B", "A", 31),
@@ -46,7 +48,7 @@ public class SortByValue {
             @Override
             public int compare(Employee o1, Employee o2) {
                 return new CompareToBuilder()
-                        .append(o1.getFirstName(),o2.getFirstName())
+                        .append(o1.getFirstName(), o2.getFirstName())
                         .append(o1.getLastName(), o2.getLastName())
                         .append(o1.getAge(), o2.getAge())
                         .toComparison();
@@ -55,7 +57,9 @@ public class SortByValue {
         System.out.println(list);
     }
 
-    /** 使用 guava的ComparisonChain比较器链组合排序 */
+    /**
+     * 使用 guava的ComparisonChain比较器链组合排序
+     */
     @Test
     public void test03() {
         List<Employee> list = Arrays.asList(new Employee(1, "A", "B", 34),

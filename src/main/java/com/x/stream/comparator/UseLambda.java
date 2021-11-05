@@ -1,4 +1,4 @@
-package com.x.Stream.Comparator;
+package com.x.stream.comparator;
 
 import com.x.java.Entity.Human;
 import org.junit.Test;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Create By  xqz on 2020/8/16.
  */
-public class useLambda {
+public class UseLambda {
 
     public static void main(String[] args) {
         List<Human> humans = new ArrayList<>();
@@ -22,9 +22,11 @@ public class useLambda {
         //humans.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));//简化
     }
 
-    /** 增强版的Comparator接口 ； reversed() 逆序（comparator中的default实现） */
+    /**
+     * 增强版的Comparator接口 ； reversed() 逆序（comparator中的default实现）
+     */
     @Test
-    public void test01(){
+    public void test01() {
         List<Human> humans = new ArrayList<>();
         humans.add(new Human("Sarah", 10));
         humans.add(new Human("Jack", 12));
@@ -32,14 +34,16 @@ public class useLambda {
         Collections.sort(humans, Comparator.comparing((Human human) -> human.getName()).reversed());
     }
 
-    /** 组合排序 */
+    /**
+     * 组合排序
+     */
     @Test
-    public void test02(){
+    public void test02() {
         List<Human> humans = new ArrayList<>();
         humans.add(new Human("Sarah", 10));
         humans.add(new Human("Jack", 12));
         humans.add(new Human("Jack", 10));
 
-        Collections.sort(humans,Comparator.comparing(Human::getName).thenComparing(Human::getAge));
+        Collections.sort(humans, Comparator.comparing(Human::getName).thenComparing(Human::getAge));
     }
 }

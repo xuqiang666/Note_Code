@@ -1,4 +1,4 @@
-package com.x.JDBC;
+package com.x.jdbc;
 
 /**
  * create by 许庆之 on 2020/3/12.

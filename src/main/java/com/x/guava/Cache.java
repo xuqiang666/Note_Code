@@ -1,6 +1,9 @@
 package com.x.guava;
 
-import com.google.common.cache.*;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import com.google.common.cache.Weigher;
 import com.xqz.domain.User;
 
 import java.text.SimpleDateFormat;
@@ -8,21 +11,21 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class cache {
+public class Cache {
 
-    private static final CacheLoader<Integer,User> userCacheLoader = new CacheLoader<Integer, User>() {
+    private static final CacheLoader<Integer, User> userCacheLoader = new CacheLoader<Integer, User>() {
         @Override
         public User load(Integer integer) throws Exception {
             //模拟从数据库取出User
             User user = new User();
             user.setId(integer);
-            user.setUsername(Thread.currentThread().getName()+"-"+
-                    new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())+"-"+integer);
+            user.setUsername(Thread.currentThread().getName() + "-" +
+                    new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()) + "-" + integer);
             return user;
         }
     };
 
-    private static final LoadingCache<Integer,User> userCacheDate = CacheBuilder.newBuilder()
+    private static final LoadingCache<Integer, User> userCacheDate = CacheBuilder.newBuilder()
             .expireAfterAccess(2, TimeUnit.SECONDS)
             .expireAfterWrite(Duration.ofMinutes(2))
             .refreshAfterWrite(Duration.ofMinutes(3))
@@ -31,14 +34,14 @@ public class cache {
             .recordStats()          //开启缓存统计
             .build(userCacheLoader);
 
-    private static final LoadingCache<Integer,User> userCacheDate2 = CacheBuilder.newBuilder()
-            .maximumWeight(1024*1024*1024)      //指定最大容量
-            .weigher((Weigher<Integer, User>) (k, v) -> k.toString().getBytes().length+v.toString().getBytes().length)
+    private static final LoadingCache<Integer, User> userCacheDate2 = CacheBuilder.newBuilder()
+            .maximumWeight(1024 * 1024 * 1024)      //指定最大容量
+            .weigher((Weigher<Integer, User>) (k, v) -> k.toString().getBytes().length + v.toString().getBytes().length)
             .build(userCacheLoader);
 
 
     public static void main(String[] args) {
-        Cache<String, String> build = CacheBuilder.newBuilder()
+        com.google.common.cache.Cache<String, String> build = CacheBuilder.newBuilder()
                 .maximumWeight(1024 * 1024 * 1024) // 设置最大容量为 1M
                 .weigher(new Weigher<String, String>() {
                     @Override
@@ -48,7 +51,7 @@ public class cache {
                 }).build();
 
         CacheBuilder.newBuilder()
-                .maximumWeight(1024*1024*1024)      //指定最大容量
+                .maximumWeight(1024 * 1024 * 1024)      //指定最大容量
                 .weigher(new Weigher<String, String>() {
                     @Override
                     public int weigh(String s, String s2) {

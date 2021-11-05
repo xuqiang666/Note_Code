@@ -1,4 +1,4 @@
-package com.x.Stream.RecursiveTask;
+package com.x.stream.recursivetask;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
@@ -6,18 +6,18 @@ import java.util.stream.LongStream;
 
 /**
  * @Author: 许庆之 on 2020/12/4.
- *  Java7中提供了一个处理大数据的fork/join框架，屏蔽掉了线程之间交互的处理，更加专注于数据的处理。
- *  https://juejin.cn/post/6900711829404647431
- *
+ * Java7中提供了一个处理大数据的fork/join框架，屏蔽掉了线程之间交互的处理，更加专注于数据的处理。
+ * https://juejin.cn/post/6900711829404647431
+ * <p>
  * 使用Fork/Join框架首先需要创建自己的任务，需要继承RecursiveTask，实现抽象方法 compute
  * 实现类需要在该方法中实现任务的拆分、计算、合并；伪代码可以表示成这样：
  * if(任务已经不可拆分){
- *     return 顺序计算结果;
+ * return 顺序计算结果;
  * } else {
- *     1.任务拆分成两个子任务
- *     2.递归调用本方法，拆分子任务
- *     3.等待子任务执行完成
- *     4.合并子任务的结果
+ * 1.任务拆分成两个子任务
+ * 2.递归调用本方法，拆分子任务
+ * 3.等待子任务执行完成
+ * 4.合并子任务的结果
  * }
  */
 public class SumRecursiveTask extends RecursiveTask<Long> {
@@ -70,7 +70,7 @@ public class SumRecursiveTask extends RecursiveTask<Long> {
         /*LongStream.rangeClosed 按顺序产生从start到end包括end，间隔为1*/
         long[] numbers = LongStream.rangeClosed(1, 100000000).toArray();
         Long result = new ForkJoinPool().invoke(new SumRecursiveTask(numbers));
-        System.out.println("result：" +result);
+        System.out.println("result：" + result);
     }
 
 }

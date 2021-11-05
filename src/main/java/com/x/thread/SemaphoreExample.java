@@ -29,6 +29,8 @@ public class SemaphoreExample {
                     System.out.println("Semaphore out after: " + finalI + "   currentTimeMillis: " + System.currentTimeMillis());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                    // sonar 让加上
+                    Thread.currentThread().interrupt();
                 }
             });
         }

@@ -1,10 +1,10 @@
-package com.x.Stream;
+package com.x.stream;
 
 /**
  * @Author: 许庆之 on 2020/8/26.
  */
 public class Student {
-    public enum Sax{
+    public enum Sax {
         FEMALE, MALE
     }
 

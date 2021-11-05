@@ -1,4 +1,4 @@
-package com.x.Stream;
+package com.x.stream;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -6,18 +6,18 @@ import java.util.stream.Collectors;
 /**
  * @Author: 许庆之 on 2020/11/20.
  */
-public class streamLambda {
+public class StreamLambda {
     public static void main(String[] args) {
 
         List<User> userList = Arrays.asList(
-                new User(1,"拉拉"),
-                new User(2,"two"),
-                new User(3,"第三人")
+                new User(1, "拉拉"),
+                new User(2, "two"),
+                new User(3, "第三人")
         );
         List<Person> personList = Arrays.asList(
-                new Person(1,"红嘿嘿"),
-                new Person(2,"白拉拉"),
-                new Person(3,"灰糊糊")
+                new Person(1, "红嘿嘿"),
+                new Person(2, "白拉拉"),
+                new Person(3, "灰糊糊")
         );
 
         /*俩个list 对象根据条件去重

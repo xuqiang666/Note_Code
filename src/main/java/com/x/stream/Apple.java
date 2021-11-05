@@ -1,4 +1,4 @@
-package com.x.Stream;
+package com.x.stream;
 
 import java.math.BigDecimal;
 
@@ -10,6 +10,7 @@ public class Apple {
     private String name;
     private BigDecimal money;
     private Integer num;
+
     public Apple(Integer id, String name, BigDecimal money, Integer num) {
         this.id = id;
         this.name = name;
