@@ -5,9 +5,13 @@ package com.y;
  */
 public class SumCountTest {
 
-    @sun.misc.Contended static final class CounterCell {
+    @sun.misc.Contended
+    static final class CounterCell {
         volatile long value;
-        CounterCell(long x) { value = x; }
+
+        CounterCell(long x) {
+            value = x;
+        }
     }
 
     private transient volatile CounterCell[] counterCells;
@@ -19,8 +23,9 @@ public class SumCountTest {
         long sum = baseCount;
         if (as != null) {
             for (int i = 0; i < as.length; ++i) {
-                if ((a = as[i]) != null)
+                if ((a = as[i]) != null) {
                     sum += a.value;
+                }
             }
         }
         return sum;
@@ -31,8 +36,9 @@ public class SumCountTest {
         long sum = baseCount;
         if (as != null) {
             for (int i = 0; i < as.length; ++i) {
-                if (as[i] != null)
+                if (as[i] != null) {
                     sum += as[i].value;
+                }
             }
         }
         return sum;

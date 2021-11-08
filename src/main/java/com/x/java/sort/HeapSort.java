@@ -3,7 +3,7 @@ package com.x.java.sort;
 import java.util.Arrays;
 
 /**
- * @Author: 许庆之 on 2020/11/6.
+ * @author 许庆之 on 2020/11/6.
  */
 public class HeapSort {
 

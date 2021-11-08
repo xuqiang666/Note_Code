@@ -19,7 +19,7 @@ public class TestCompletableFuture {
 
         ExecutorService executorService = Executors.newCachedThreadPool();
 
-        CompletableFuture.supplyAsync(new MyThreadt444(commandstr02),executorService).whenComplete((result, e) -> {
+        CompletableFuture.supplyAsync(new MyThreadt444(commandstr02), executorService).whenComplete((result, e) -> {
             //执行线程执行完以后的操作。
             System.out.println(result + " " + e);
         }).exceptionally((e) -> {
@@ -28,7 +28,7 @@ public class TestCompletableFuture {
             return "exception";
         });
 
-        CompletableFuture.supplyAsync(new MyThreadt333(commandstr02),executorService).whenComplete((result, e) -> {
+        CompletableFuture.supplyAsync(new MyThreadt333(commandstr02), executorService).whenComplete((result, e) -> {
             //执行线程执行完以后的操作。
             System.out.println(result + " " + e);
         }).exceptionally((e) -> {
@@ -39,14 +39,15 @@ public class TestCompletableFuture {
 }
 
 
-
-class MyThreadt333 implements Supplier<String>{
+class MyThreadt333 implements Supplier<String> {
 
     // 要运行的命令
     private String commandstr;
+
     public MyThreadt333(String commandstr) {
         this.commandstr = commandstr;
     }
+
     @Override
     public String get() {
         int sum = 0;
@@ -54,13 +55,12 @@ class MyThreadt333 implements Supplier<String>{
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             sum += i;
-            System.out.println("Mythread333: "+i);
+            System.out.println("Mythread333: " + i);
         }
-        return String.valueOf(sum+300000);
+        return String.valueOf(sum + 300000);
     }
 }
 
@@ -68,9 +68,11 @@ class MyThreadt444 implements Supplier<String> {
 
     // 要运行的命令
     private String commandstr;
+
     public MyThreadt444(String commandstr) {
         this.commandstr = commandstr;
     }
+
     @Override
     public String get() {
         int sum = 0;
@@ -78,12 +80,11 @@ class MyThreadt444 implements Supplier<String> {
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             sum += i;
-            System.out.println("Mythread444: "+i);
+            System.out.println("Mythread444: " + i);
         }
-        return String.valueOf(sum+400000);
+        return String.valueOf(sum + 400000);
     }
 }
