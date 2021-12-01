@@ -1,4 +1,4 @@
-package com.y;
+package com.y.concurrent;
 
 import com.lmax.disruptor.*;
 import com.lmax.disruptor.dsl.Disruptor;

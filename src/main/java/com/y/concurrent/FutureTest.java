@@ -1,4 +1,4 @@
-package com.y;
+package com.y.concurrent;
 
 import com.mysql.jdbc.Connection;
 import org.junit.Test;
