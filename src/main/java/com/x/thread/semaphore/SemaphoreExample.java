@@ -1,4 +1,4 @@
-package com.x.thread;
+package com.x.thread.semaphore;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
