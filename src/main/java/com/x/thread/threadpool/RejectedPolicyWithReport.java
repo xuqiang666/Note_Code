@@ -1,4 +1,4 @@
-package com.x.thread.threadPool;
+package com.x.thread.threadpool;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +22,7 @@ public class RejectedPolicyWithReport implements RejectedExecutionHandler {
     private static final long TEN_MINUTES_MILLS = 10 * 60 * 1000;
 
     private static Semaphore guard = new Semaphore(1);
+
     @Override
     public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
         try {
@@ -47,7 +48,8 @@ public class RejectedPolicyWithReport implements RejectedExecutionHandler {
      * 1.当前线程的基本信息:id,name,state<p>
      * 2.堆栈信息<p>
      * 3.锁相关信息(可以设置不记录)<p>
-     *  默认在log记录<p>
+     * 默认在log记录<p>
+     *
      * @return
      */
     private void threadDump() {

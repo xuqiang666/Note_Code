@@ -1,4 +1,4 @@
-package com.x.thread.threadPool;
+package com.x.thread.threadpool;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MyTask implements Callable<Integer> {
 
     private int num;
+
     public MyTask(int i) {
         this.num = i;
     }
@@ -25,6 +26,7 @@ public class MyTask implements Callable<Integer> {
         BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(90);
         ThreadFactory threadFactory = new ThreadFactory() {
             final AtomicInteger atomicInteger = new AtomicInteger(1);
+
             @Override
             public Thread newThread(Runnable r) {
                 //创建线程 把任务传进来
@@ -46,19 +48,19 @@ public class MyTask implements Callable<Integer> {
         }
 
         // 当队列90，拒绝策略选择的是AbortPolicy 才能正确执行到此处，size为100
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+myFutures.size());
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + myFutures.size());
         int te = 0;
         for (Future<Integer> future : myFutures) {
             Integer n = 9999;
             try {
                 // 如果在这里不设置超时时间，当多余的任务被拒绝后，主线程将持续阻塞在get方法
-                n = future.get(1L,TimeUnit.SECONDS);
+                n = future.get(1L, TimeUnit.SECONDS);
             } catch (Exception e) {
-                if (e instanceof TimeoutException){
+                if (e instanceof TimeoutException) {
                     te++;
-                    System.out.println(te+" 超时异常-----------"+e.getMessage());
-                }else {
-                    System.out.println("--得到异常啦啦啦--"+e.getMessage());
+                    System.out.println(te + " 超时异常-----------" + e.getMessage());
+                } else {
+                    System.out.println("--得到异常啦啦啦--" + e.getMessage());
                     e.printStackTrace();
                 }
             }
@@ -75,7 +77,7 @@ public class MyTask implements Callable<Integer> {
         if (num == 50) {
             int a = num / 0;
         }
-        System.out.println(Thread.currentThread().getName()+"线程执行：  task-【"+num+"】成功执行ing。。。");
+        System.out.println(Thread.currentThread().getName() + "线程执行：  task-【" + num + "】成功执行ing。。。");
         return s;
     }
 }

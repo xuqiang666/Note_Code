@@ -1,4 +1,4 @@
-package com.x.thread.threadPool;
+package com.x.thread.threadpool;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +11,10 @@ import java.util.concurrent.*;
  * 自定义线程池<p>
  * 1.监控线程池状态及异常关闭等情况<p>
  * 2.监控线程池运行时的各项指标, 比如:任务等待数、已完成任务数、任务异常信息、核心线程数、最大线程数等<p>
+ *
  * @Author: 老K http://javakk.com/188.html
  */
-public class ThreadPoolExt extends ThreadPoolExecutor{
+public class ThreadPoolExt extends ThreadPoolExecutor {
 
     private static final Logger log = LoggerFactory.getLogger(ThreadPoolExt.class);
 
@@ -25,8 +26,7 @@ public class ThreadPoolExt extends ThreadPoolExecutor{
                          TimeUnit unit,
                          BlockingQueue<Runnable> workQueue,
                          ThreadFactory threadFactory,
-                         RejectedExecutionHandler handler)
-    {
+                         RejectedExecutionHandler handler) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
         this.timeUnit = unit;
     }
@@ -70,7 +70,7 @@ public class ThreadPoolExt extends ThreadPoolExecutor{
     /**
      * 监控线程池运行时的各项指标, 比如:任务等待数、任务异常信息、已完成任务数、核心线程数、最大线程数等<p>
      */
-    private void monitor(String title){
+    private void monitor(String title) {
         try {
             // 线程池监控信息记录, 这里需要注意写ES的时机,尤其是多个子线程的日志合并到主流程的记录方式
             String threadPoolMonitor = MessageFormat.format(
