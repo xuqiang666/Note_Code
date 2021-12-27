@@ -122,6 +122,7 @@
             <artifactId>quartz</artifactId>
             <version>2.3.2</version>
         </dependency>
+
         <!-- Sa-Token 权限认证, 在线文档：http://sa-token.dev33.cn/ -->
         <dependency>
             <groupId>cn.dev33</groupId>
@@ -144,18 +145,24 @@
             <artifactId>jedis</artifactId>
             <version>3.7.1</version>
         </dependency>
+
+        <!--  disruptor是用于一个JVM中多个线程之间的消息队列，作用与ArrayBlockingQueue有相似之处，
+        但是disruptor从功能、性能都远好于ArrayBlockingQueue，
+        当多个线程之间传递大量数据或对性能要求较高时，可以考虑使用disruptor作为ArrayBlockingQueue的替代者。-->
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
             <version>3.4.4</version>
         </dependency>
 
+        <!-- JSR 354 - “金钱和货币”解决了Java中货币和货币金额的标准化问题。-->
         <dependency>
             <groupId>org.javamoney</groupId>
             <artifactId>moneta</artifactId>
             <version>1.4.2</version>
             <type>pom</type>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
