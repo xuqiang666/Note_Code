@@ -9,6 +9,7 @@ import java.util.concurrent.*;
 
 /**
  * 多线程实现同时提交和回滚，本质是2PC的思想，但在提交失败时会导致数据不一致
+ * 发现有好多问题在里面啊 啊啊啊啊
  */
 public class MultiThread2PcExt {
 
@@ -25,49 +26,48 @@ public class MultiThread2PcExt {
         //子线程运行结果
         List<Boolean> childResponse = new ArrayList<>();
         List<Future<Object>> resultList = new ArrayList<>();
-        ExecutorService executor = Executors.newCachedThreadPool();
+        ExecutorService executor = Executors.newFixedThreadPool(threadCount);
         for (int i = 0; i < threadCount; i++) {
             int finalI = i;
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        System.out.println(Thread.currentThread().getName() + "：开始执行");
-//                        if (finalI == 4) {
-//                            throw new Exception("出现异常");
-//                        }
-                        TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextInt(1000));
-                        childResponse.add(Boolean.TRUE);
-                    } catch (Exception e) {
-                        childResponse.add(Boolean.FALSE);
-                        //System.out.println(Thread.currentThread().getName() + "：回滚自己");
-                        System.out.println(Thread.currentThread().getName() + "：出现异常,开始事务回滚");
-                    } finally {
-                        childMonitor.countDown();
+            Callable<Object> callable = () -> {
+                try {
+                    System.out.println(Thread.currentThread().getName() + "：开始执行");
+                    if (finalI == 4) {
+                        throw new Exception("出现异常");
                     }
-
-                    System.out.println(Thread.currentThread().getName() + "：准备就绪,等待其他线程结果,判断是否事务提交");
-                    try {
-                        mainMonitor.await();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    if (IS_OK) {
-                        if (finalI == 3) {
-                            throw new RuntimeException("提交时异常");
-                        }
-                        System.out.println(Thread.currentThread().getName() + "：事务提交");
-                    } else {
-                        System.out.println(Thread.currentThread().getName() + "：事务回滚");
-                    }
+                    TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextInt(1000));
+                    childResponse.add(Boolean.TRUE);
+                } catch (Exception e) {
+                    childResponse.add(Boolean.FALSE);
+                    //System.out.println(Thread.currentThread().getName() + "：回滚自己");
+                    System.out.println(Thread.currentThread().getName() + "：出现异常,开始事务回滚");
+                } finally {
+                    childMonitor.countDown();
                 }
-            });
+
+                System.out.println(Thread.currentThread().getName() + "：准备就绪,等待其他线程结果,判断是否事务提交");
+                try {
+                    mainMonitor.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if (IS_OK) {
+                    if (finalI == 3) {
+                        throw new RuntimeException("提交时异常");
+                    }
+                    System.out.println(Thread.currentThread().getName() + "：事务提交");
+                } else {
+                    System.out.println(Thread.currentThread().getName() + "：事务回滚");
+                }
+                return null;
+            };
             //使用线程池的方式执行线程，如果子线程有异常的话，ExecutorService就已经捕获到了，我们可以从future对象中获取异常。
             // 正常情况下future对象中获取的是null，有异常的话获取到的就是异常信息
-            Future<Object> future = (Future<Object>) executor.submit(t);
+            Future<Object> future = (Future<Object>) executor.submit(callable);
             resultList.add(future);
-
         }
+        ;
+
         //主线程等待所有子线程执行response
         try {
             childMonitor.await();
@@ -100,7 +100,7 @@ public class MultiThread2PcExt {
         // 可以通过下面的方式，将子线程提交时，如果future返回的是null，代表提交正常，当get操作进入异常，代表提交操作出错了，需要手动介入进行处理
         // 如果线程池运行完毕的后续处理，拼装异常信息
         if (executor.isTerminated()) {
-            for (Future future : resultList) {
+            for (Future<Object> future : resultList) {
                 String errorString = null;
                 try {
                     errorString = (String) future.get();

@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * @Author: 许庆之 on 2020/12/4.
  */
@@ -19,9 +22,9 @@ public class Preconditions {
         test1("null", 19, null);
     }
 
-    public static void test1(String name, int age, Map<String, String> extInfo) {
-        com.google.common.base.Preconditions.checkNotNull(name, "name must be given!");
-        com.google.common.base.Preconditions.checkArgument(age > 18, "you age is under 18!");
+    public void test1(String name, int age, Map<String, String> extInfo) {
+        checkNotNull(name, "name must be given!");
+        checkArgument(age > 18, "you age is under 18!");
         Map<String, String> defaultExtMap = Maps.newHashMap();
         defaultExtMap.put("sex", "man");
         extInfo = Optional.ofNullable(extInfo).orElse(defaultExtMap);
