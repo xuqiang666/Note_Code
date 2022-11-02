@@ -17,6 +17,8 @@ public class BestTimeToBuyAndSellStock {
     }
 
     /**
+     * 如果用low 表示历史最低点，那么price[i]-low就表示在第i天卖出股票能得到的利润
+     * 那么就通过dp数组记录历史最低点
      * 用动态规划的思想，dp[i] = min(dp[i-1],prices[i])
      */
     public static int maxProfit(int[] prices) {
