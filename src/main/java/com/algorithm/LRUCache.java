@@ -1,48 +1,48 @@
 package com.algorithm;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author: 许庆之 on 2020/11/20.
  * https://juejin.cn/post/6844903927037558792
  */
-public class LRUCache<k,v> {
+public class LRUCache<k, v> {
 
     private int capacity;
     private int count;
-    private Map<k,Node<k,v>> nodeMap;
+    private Map<k, Node<k, v>> nodeMap;
     private Node head;
     private Node tail;
 
-    public LRUCache(int capacity){
-        if(capacity<1){
+    public LRUCache(int capacity) {
+        if (capacity < 1) {
             throw new IllegalArgumentException();
         }
         this.capacity = capacity;
         this.nodeMap = new HashMap<>();
         //初始化头节点和尾节点，利用哨兵模式减少判断头结点和尾节点为空的代码
-        Node headNode = new Node<>(null,null);
-        Node tailNode = new Node<>(null,null);
+        Node headNode = new Node<>(null, null);
+        Node tailNode = new Node<>(null, null);
         this.head = headNode;
         this.tail = tailNode;
     }
 
-    public void put(k key,v value){
-        Node<k,v> node = nodeMap.get(key);
+    public void put(k key, v value) {
+        Node<k, v> node = nodeMap.get(key);
         if (node == null) {
             if (count >= capacity) {
                 removeNode();
             }
-            node = new Node<>(key,value);
+            node = new Node<>(key, value);
             addNode(node);
-        }else{
+        } else {
             moveNodeToHead(node);
         }
     }
 
-    public Node<k,v> get(k key){
-        Node<k,v> node = nodeMap.get(key);
+    public Node<k, v> get(k key) {
+        Node<k, v> node = nodeMap.get(key);
         if (node != null) {
             moveNodeToHead(node);
         }
@@ -57,7 +57,7 @@ public class LRUCache<k,v> {
         count--;
     }
 
-    private void removeFromTail(Node<k,v> node) {
+    private void removeFromTail(Node<k, v> node) {
         Node pre = node.pre;
         Node next = node.next;
         pre.next = next;
@@ -66,10 +66,10 @@ public class LRUCache<k,v> {
         node.next = null;
     }
 
-    private void addNode(Node<k,v> node) {
+    private void addNode(Node<k, v> node) {
         //从头节点处插入，往map中插入
         addNodeToHead(node);
-        nodeMap.put(node.key,node);
+        nodeMap.put(node.key, node);
         count++;
     }
 
@@ -81,7 +81,7 @@ public class LRUCache<k,v> {
         head.next = node;
     }
 
-    private void moveNodeToHead(Node<k,v> node) {
+    private void moveNodeToHead(Node<k, v> node) {
         removeFromTail(node);
         addNodeToHead(node);
     }
@@ -93,7 +93,7 @@ public class LRUCache<k,v> {
         Node pre;
         Node next;
 
-        private Node(k key,v value){
+        private Node(k key, v value) {
             this.key = key;
             this.value = value;
         }
