@@ -8,7 +8,9 @@
     <artifactId>Note_Code</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <dubbo.version>2.7.12</dubbo.version>
+        <spring.version>5.3.30</spring.version>
+        <dubbo.version>3.2.5</dubbo.version>
+        <mysql.connector.version>8.0.33</mysql.connector.version>
     </properties>
 
     <dependencies>
@@ -21,7 +23,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>31.0.1-jre</version>
+            <version>33.0.0-jre</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -31,12 +33,14 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.25</version>
+            <version>${mysql.connector.version}</version>
+            <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.8</version>
+            <version>1.4.12</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
@@ -61,22 +65,18 @@
             <artifactId>jaxen</artifactId>
             <version>1.2.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>5.3.13</version>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.3.13</version>
-            <scope>test</scope>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>5.3.13</version>
-        </dependency>
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
@@ -89,32 +89,27 @@
             <artifactId>hapi-base</artifactId>
             <version>2.3</version>
         </dependency>
-        <!-- <dependency>
-            <groupId>com.dhcc.framework</groupId>
-            <artifactId>dhcc-core</artifactId>
-            <version>2.1.1.7</version>
-        </dependency> -->
-        <!--        <dependency>-->
-        <!--            <groupId>com.dhcc.framework</groupId>-->
-        <!--            <artifactId>dhcc-core</artifactId>-->
-        <!--            <version>3.5.0</version>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.dhcc.components</groupId>-->
-        <!--            <artifactId>dhcc-user-bundle</artifactId>-->
-        <!--            <version>1.1.2</version>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.dhcc.base</groupId>-->
-        <!--            <artifactId>dhcc-um-client</artifactId>-->
-        <!--            <version>2.1.0</version>-->
-        <!--        </dependency>-->
-
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83</version>
         </dependency>
 
         <dependency>
@@ -127,19 +122,26 @@
         <dependency>
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-spring-boot-starter</artifactId>
-            <version>1.28.0</version>
+            <version>1.39.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba</groupId>
+                    <artifactId>fastjson</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.7.17</version>
+            <version>5.8.24</version>
         </dependency>
 
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.72.Final</version>
+            <version>4.1.113.Final</version>
         </dependency>
+
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
@@ -187,44 +189,44 @@
             <version>23.0.0</version>
         </dependency>
 
-        <!--        htppclient相关jar-->
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
+        <!-- HttpClient相关组件统一版本 -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
-            <version>4.4.13</version>
+            <version>4.4.16</version>  <!-- 同步升级至最新安全版本 -->
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.13</version>
+            <version>4.5.14</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
-        <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
-            <version>3.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpmime</artifactId>
-            <version>4.5.13</version>
+            <version>4.5.14</version>  <!-- 版本与httpclient对齐 -->
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore-nio -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore-nio</artifactId>
-            <version>4.4.15</version>
+            <version>4.4.16</version>  <!-- 与httpcore版本统一 -->
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpasyncclient -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpasyncclient</artifactId>
-            <version>4.1.5</version>
+            <version>4.1.5</version>   <!-- 升级到最新安全版本 -->
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version>
         </dependency>
 
+        <!-- PageHelper分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.4.7</version>
+        </dependency>
 
     </dependencies>
 
