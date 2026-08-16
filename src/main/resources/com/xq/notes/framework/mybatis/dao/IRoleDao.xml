@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.xq.notes.framework.mybatis.dao.IRoleDao">
+    <!--配置查询所有-->
+    <select id="findAll" resultType="com.xq.notes.framework.mybatis.domain.Role">
+        select * from role
+    </select>
+</mapper>
