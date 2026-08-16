@@ -1,5 +1,10 @@
 package com.xq.notes.concurrency.timer;
 
+/*
+ * 学习笔记：本文件为 Apache Dubbo 的 HashedWheelTimer 实现拷贝，仅用于学习阅读。
+ * 来源：org.apache.dubbo.common.timer.HashedWheelTimer（Apache License 2.0）
+ * 仓库：https://github.com/apache/dubbo
+ */
 import org.apache.dubbo.common.logger.Logger;
 import org.apache.dubbo.common.logger.LoggerFactory;
 import org.apache.dubbo.common.timer.Timeout;

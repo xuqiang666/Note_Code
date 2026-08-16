@@ -1,4 +1,4 @@
-package com.xq.notes.core.Entity;
+package com.xq.notes.core.entity;
 
 /**
  * Create By  xqz on 2020/8/16.

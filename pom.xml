@@ -75,11 +75,6 @@
             <version>2.1.4</version>
         </dependency>
         <dependency>
-            <groupId>jaxen</groupId>
-            <artifactId>jaxen</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.15.2</version>
@@ -111,9 +106,10 @@
             <artifactId>jedis</artifactId>
             <version>4.4.3</version>
         </dependency>
+        <!-- Only io.netty.util (HashedWheelTimer etc.) is used, netty-common is enough. -->
         <dependency>
             <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
+            <artifactId>netty-common</artifactId>
             <version>4.1.113.Final</version>
         </dependency>
         <dependency>

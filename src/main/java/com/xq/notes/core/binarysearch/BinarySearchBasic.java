@@ -1,4 +1,4 @@
-package com.xq.notes.core.BinarySearch;
+package com.xq.notes.core.binarysearch;
 
 
 import org.junit.Test;

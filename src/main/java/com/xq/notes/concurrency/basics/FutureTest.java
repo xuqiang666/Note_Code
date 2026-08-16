@@ -1,8 +1,8 @@
 package com.xq.notes.concurrency.basics;
 
-import com.mysql.jdbc.Connection;
 import org.junit.Test;
 
+import java.sql.Connection;
 import java.util.concurrent.*;
 
 public class FutureTest {

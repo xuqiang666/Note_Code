@@ -1,4 +1,4 @@
-package com.xq.notes.core.Entity;
+package com.xq.notes.core.entity;
 
 
 import org.apache.commons.lang3.builder.CompareToBuilder;

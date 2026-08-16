@@ -18,17 +18,17 @@ public class PageHelperDemo {
     public PageInfo<User> getUserList(
             @RequestParam(defaultValue = "1") int pageNum,
             @RequestParam(defaultValue = "10") int pageSize) {
-        
+
         // 开启分页
         PageHelper.startPage(pageNum, pageSize);
-        
+
         // 执行查询（这里是示例，实际查询语句根据您的业务来写）
         List<User> users = userMapper.selectAll();
-        
+
         // 封装分页信息 这里为什么PageInfo里面有分页信息？
-        
+
         PageInfo<User> pageInfo = new PageInfo<>(users);
-        
+
         return pageInfo;
     }
 }

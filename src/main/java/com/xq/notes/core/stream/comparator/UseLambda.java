@@ -1,6 +1,6 @@
 package com.xq.notes.core.stream.comparator;
 
-import com.xq.notes.core.Entity.Human;
+import com.xq.notes.core.entity.Human;
 import org.junit.Test;
 
 import java.util.ArrayList;
