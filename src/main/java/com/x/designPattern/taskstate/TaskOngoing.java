@@ -2,8 +2,9 @@ package com.x.designpattern.taskstate;
 
 // 任务进行状态
 class TaskOngoing implements State {
-    private ActivityService activityService;
-    private TaskManager taskManager;
+    private final ActivityService activityService = new ActivityService();
+    private final TaskManager taskManager = new TaskManager();
+
     @Override
     public void update(Task task, ActionType actionType) {
         if (actionType == ActionType.ACHIEVE) {
