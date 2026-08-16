@@ -7,6 +7,7 @@ import com.xq.notes.framework.mybatis.mybatis.io.Resources;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
+import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 
 import java.io.IOException;
@@ -43,9 +44,10 @@ public class XMLConfigBuilder {
             //3.获取根节点
             Element root = document.getRootElement();
             //4.使用xpath中选择指定节点的方式，获取所有property节点
-            List<Element> propertyElements = root.selectNodes("//property");
+            List<Node> propertyElements = root.selectNodes("//property");
             //5.遍历节点
-            for(Element propertyElement : propertyElements){
+            for(Node propertyNode : propertyElements){
+                Element propertyElement = (Element) propertyNode;
                 //判断节点是连接数据库的哪部分信息
                 //取出name属性的值
                 String name = propertyElement.attributeValue("name");
@@ -75,9 +77,10 @@ public class XMLConfigBuilder {
                 }
             }
             //取出mappers中的所有mapper标签，判断他们使用了resource还是class属性
-            List<Element> mapperElements = root.selectNodes("//mappers/mapper");
+            List<Node> mapperElements = root.selectNodes("//mappers/mapper");
             //遍历集合
-            for(Element mapperElement : mapperElements){
+            for(Node mapperNode : mapperElements){
+                Element mapperElement = (Element) mapperNode;
                 //判断mapperElement使用的是哪个属性
                 Attribute attribute = mapperElement.attribute("resource");
                 if(attribute != null){
@@ -137,9 +140,10 @@ public class XMLConfigBuilder {
             //4.获取根节点的namespace属性取值
             String namespace = root.attributeValue("namespace");//是组成map中key的部分
             //5.获取所有的select节点
-            List<Element> selectElements = root.selectNodes("//select");
+            List<Node> selectElements = root.selectNodes("//select");
             //6.遍历select节点集合
-            for(Element selectElement : selectElements){
+            for(Node selectNode : selectElements){
+                Element selectElement = (Element) selectNode;
                 //取出id属性的值      组成map中key的部分
                 String id = selectElement.attributeValue("id");
                 //取出resultType属性的值  组成map中value的部分

@@ -1,11 +1,11 @@
 package com.xq.notes.concurrency.scheduling;
 
 import java.util.Calendar;
-import java.util.Set;
+import java.util.List;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.Tuple;
+import redis.clients.jedis.resps.Tuple;
 
 /**
  * 通过 redis 实现延迟队列
@@ -37,7 +37,7 @@ public class RedisDelay {
         Jedis jedis = RedisDelay.getJedis();
         while (true) {
             // 拿到最近时间的一条数据
-            Set<Tuple> items = jedis.zrangeWithScores("OrderId", 0, 1);
+            List<Tuple> items = jedis.zrangeWithScores("OrderId", 0, 1);
             if (items == null || items.isEmpty()) {
                 System.out.println("当前没有等待的任务");
                 try {
@@ -48,11 +48,11 @@ public class RedisDelay {
                 }
                 continue;
             }
-            int score = (int) ((Tuple) items.toArray()[0]).getScore();
+            int score = (int) items.get(0).getScore();
             Calendar cal = Calendar.getInstance();
             int nowSecond = (int) (cal.getTimeInMillis() / 1000);
             if (nowSecond >= score) {
-                String orderId = ((Tuple) items.toArray()[0]).getElement();
+                String orderId = items.get(0).getElement();
                 jedis.zrem("OrderId", orderId);
                 System.out.println(System.currentTimeMillis() + "ms:redis消费了一个任务：消费的订单OrderId为" + orderId);
             }
