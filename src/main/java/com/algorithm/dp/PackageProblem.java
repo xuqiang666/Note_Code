@@ -89,7 +89,7 @@ public class PackageProblem {
         // 有一个可以放m个0和n个1的背包，最多可以放字符串的数量
         int[][][] dp = new int[length + 1][m + 1][n + 1];
         for (int i = 1; i <= length; i++) {
-            String str = strs[i];
+            String str = strs[i - 1];
             int zeros = 0;
             int ones = 0;
             for (char c : str.toCharArray()) {
