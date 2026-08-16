@@ -13,7 +13,7 @@ import java.util.Deque;
  *  但 {4,3,5,1,2} 就不可能是该压栈序列的弹出序列。
  *
  */
-public class validateStackSequences {
+public class ValidateStackSequences {
     public boolean validateStackSequences(int[] pushed, int[] popped) {
         Deque<Integer> deque = new ArrayDeque<>();
         int j=0;
@@ -66,6 +66,6 @@ public class validateStackSequences {
     public static void main(String[] args) {
         int[] pushed = {1,2,3,4,5};
         int[] popped = {4,5,3,2,1};
-        System.out.println(new com.xq.notes.algorithm.stack.validateStackSequences().validateStackSequences(pushed,popped));
+        System.out.println(new ValidateStackSequences().validateStackSequences(pushed,popped));
     }
 }

@@ -9,7 +9,7 @@ import java.util.concurrent.Future;
 /**
  * //https://blog.csdn.net/weijiaxiaobao/article/details/51217265
  */
-public class MutiThreadException {
+public class MultiThreadException {
 
     public static void main(String[] args) {
         System.out.println("MutiThreadException.main()------>start<------");

@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * Create By  xqz on 2020/8/29.
  */
-public class isUnique {
+public class IsUnique {
     class Solution {
         public boolean isUnique(String astr) {
             //char[] data = astr.toCharArray();

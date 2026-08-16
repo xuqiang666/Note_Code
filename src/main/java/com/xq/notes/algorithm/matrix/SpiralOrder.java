@@ -5,7 +5,7 @@ package com.xq.notes.algorithm.matrix;
  * 29.顺时针打印矩阵
  * 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
  */
-public class spiralOrder {
+public class SpiralOrder {
     public int[] spiralOrder(int[][] matrix) {
         if(matrix==null) return null;
         int m = matrix.length;
@@ -43,7 +43,7 @@ public class spiralOrder {
     public static void main(String[] args) {
         int[][] tes = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         //int[][] tes = {{1,2,3,},{4,5,6},{7,8,9}};
-        int[] ints = new spiralOrder().spiralOrder(tes);
+        int[] ints = new SpiralOrder().spiralOrder(tes);
         for (int i:ints){
             System.out.print(i+" ");
         }

@@ -3,7 +3,7 @@ package com.xq.notes.algorithm.code;
 /**
  * @Author: 许庆之 on 2020/9/27.
  */
-public class fastPow {
+public class FastPow {
     /**
      * 快速幂的核心在于将幂指数转成额二进制
      * 6对应的二进制为 110    a^6 = a^4 * a^2 * a^0
@@ -36,7 +36,7 @@ public class fastPow {
     }
 
     public static void main(String[] args) {
-        System.out.println(new fastPow().fastpow(2,6));
-        System.out.println(new fastPow().fastpow2(2,6));
+        System.out.println(new FastPow().fastpow(2,6));
+        System.out.println(new FastPow().fastpow2(2,6));
     }
 }

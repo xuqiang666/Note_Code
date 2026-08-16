@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * create by 许庆之 on 2020/3/12.
  */
-public class jdbcUtilsTest2 {
+public class JdbcUtilsTest2 {
 
     public static void main(String[] args) {
 

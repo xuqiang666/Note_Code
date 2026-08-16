@@ -3,10 +3,10 @@ package com.xq.notes.core.file;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public final class findStrInFile {
+public final class FindStrInFile {
 
     // 工具类中的方法都是静态方式访问的因此将构造器私有不允许创建对象(绝对好习惯)
-    private findStrInFile() {
+    private FindStrInFile() {
         throw new AssertionError();
     }
 

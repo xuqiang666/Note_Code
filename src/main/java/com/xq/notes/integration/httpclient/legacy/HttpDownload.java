@@ -22,7 +22,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class test {
+public class HttpDownload {
 
     /**
      * 用于下载文件

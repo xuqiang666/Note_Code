@@ -3,7 +3,7 @@ package com.xq.notes.algorithm.code;
 /**
  * @Author: 许庆之 on 2020/9/28.
  */
-public class cuttingRope {
+public class CuttingRope {
 
         //数论，贪心--加入尽可能多的3结果最大--最快
         public int cuttingRope(int n) {

@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * @Author: 许庆之 on 2020/10/10.
  */
-public class Test {
+public class QuickSortTest {
     public void quickSort(int[] in) {
         sortCur(in, 0, in.length - 1);
     }

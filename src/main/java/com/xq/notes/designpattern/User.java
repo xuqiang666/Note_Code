@@ -6,7 +6,7 @@ package com.xq.notes.designpattern;
  * User d = User.builder().name("foo").password("pAss12345").age(25).build();
  *  使用Lombok后，只需要一个@Builder注解+类中的属性即可直接生成一个 XXXBuilder类
  */
-class User {
+public class User {
     /** 下面是“一堆”的属性 */
     private String name;
     private String password;

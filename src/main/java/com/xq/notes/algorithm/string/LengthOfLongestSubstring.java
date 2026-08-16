@@ -1,4 +1,4 @@
-package com.xq.notes.algorithm.String;
+package com.xq.notes.algorithm.string;
 
 import java.util.HashMap;
 
@@ -14,7 +14,7 @@ import java.util.HashMap;
  * <p>
  * 滑动窗口解决  https://mp.weixin.qq.com/s/fHpCyEOAl_QW4v3GIZUh1Q
  */
-public class lengthOfLongestSubstring {
+public class LengthOfLongestSubstring {
 
     public int lengthOfLongestSubstring(String s) {
         // (1) 先创建map数据结构存储（k,v）,其中key为字符，value为字符的下标.

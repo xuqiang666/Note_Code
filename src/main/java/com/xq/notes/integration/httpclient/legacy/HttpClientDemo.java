@@ -22,7 +22,7 @@ import java.util.Map;
 
 import static org.apache.http.entity.ContentType.create;
 
-public class upload {
+public class HttpClientDemo {
 
     public static Logger logger = new Logger();
 
@@ -189,7 +189,7 @@ public class upload {
                 fileContent = data.getJSONArray("fileContent");
                 logger.info("*****************response*****************");
                 logger.info("响应结果： " + rst.substring(0,10));
-                
+
             }
             // 销毁
             EntityUtils.consume(resEntity);

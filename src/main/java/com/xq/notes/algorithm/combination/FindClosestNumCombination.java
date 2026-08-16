@@ -7,7 +7,7 @@ import java.util.*;
  * author: kingdee
  * 给定升序数组，以及目标值，查找出最接近目标值的数组组合
  */
-public class FindClosestNumCombination_兰剑 {
+public class FindClosestNumCombination {
 
     public static void main(String[] args) {
 //        int[] arr = {1, 1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 12, 17}; //14

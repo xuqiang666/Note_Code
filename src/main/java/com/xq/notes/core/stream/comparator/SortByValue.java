@@ -1,7 +1,7 @@
 package com.xq.notes.core.stream.comparator;
 
 import com.google.common.collect.ComparisonChain;
-import com.xq.notes.core.Entity.Employee;
+import com.xq.notes.core.entity.Employee;
 import org.apache.commons.lang3.builder.CompareToBuilder;
 import org.junit.Test;
 

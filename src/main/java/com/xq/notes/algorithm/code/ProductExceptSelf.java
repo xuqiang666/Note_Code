@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 /**
  * Create By  xqz on 2020/8/28.
  */
-public class productExceptSelf {
+public class ProductExceptSelf {
 
     public int[] productExceptSelf(int[] nums) {
         int pre = 1;int suf = 1;
@@ -64,7 +64,7 @@ public class productExceptSelf {
         while ((line = in.readLine()) != null) {
             int[] nums = stringToIntegerArray(line);
 
-            int[] ret = new productExceptSelf().productExceptSelf(nums);
+        int[] ret = new ProductExceptSelf().productExceptSelf(nums);
 
             String out = integerArrayToString(ret);
 

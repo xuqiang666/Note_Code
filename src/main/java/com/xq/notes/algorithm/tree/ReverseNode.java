@@ -3,7 +3,7 @@ package com.xq.notes.algorithm.tree;
 /**
  * Create By  xqz on 2020/9/6.
  */
-public class reverseNode {
+public class ReverseNode {
 
     public class ListNode {
         int val;

@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class testDate {
+public class TestDate {
 
     public static void main(String[] args) throws ParseException {
         Date date = new Date(4070880000000L);

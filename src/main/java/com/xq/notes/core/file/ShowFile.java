@@ -6,7 +6,7 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
 //列出当前文件夹下的文件
-class showFile {
+class ShowFile {
 
     public static void main(String[] args) {
         File f = new File("/Users/Hao/Downloads");

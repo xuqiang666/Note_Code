@@ -18,7 +18,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-public class post {
+public class HttpUpload {
 
     /**
      *

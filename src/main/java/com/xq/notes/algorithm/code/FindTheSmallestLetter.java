@@ -7,9 +7,9 @@ import org.junit.Test;
  * create by 许庆之 on 2020/4/15.
  * 给定一个有序的字符数组 letters 和一个字符 target，要求找出 letters 中大于 target 的最小字符，如果找不到就返回第 1 个字符。
  */
-public class FindTheSmallestLeetter {
+public class FindTheSmallestLetter {
 
-    public char findTheSmallestLeetter(char[] letters , char target){
+    public char findTheSmallestLetter(char[] letters , char target){
 
         int h = letters.length -1;
         int l = 0;
@@ -30,6 +30,6 @@ public class FindTheSmallestLeetter {
     @Test
     public void test342(){
         char [] letters = {'a','b','c','f','g','h','n','p','s','t','x'};
-        System.out.println(findTheSmallestLeetter(letters,'c'));
+        System.out.println(findTheSmallestLetter(letters,'c'));
     }
 }

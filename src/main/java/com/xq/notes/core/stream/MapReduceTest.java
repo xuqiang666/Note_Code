@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class MapReduceTEst {
+public class MapReduceTest {
     public static void main(String[] args) {
         List<String> list = Lists.newArrayList("我阿达发 ", "答复啊", "而非微软给", "而我认为");
         String s = list.stream().map(a -> a + "\n")

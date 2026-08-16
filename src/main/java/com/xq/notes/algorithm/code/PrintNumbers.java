@@ -4,7 +4,7 @@ package com.xq.notes.algorithm.code;
  * @Author: 许庆之 on 2020/9/27.
  * 打印从 1 到 n 的最大的n位数，即当n为2输出从1到99
  */
-public class printNumbers {
+public class PrintNumbers {
 
     char[] nums;
     char[] loop = {'0','1','2','3','4','5','6','7','8','9'};
@@ -32,8 +32,8 @@ public class printNumbers {
     }
 
     public static void main(String[] args) {
-        System.out.println(new printNumbers().printNumbers1(2));
-        System.out.println(new printNumbers().printNumbers2(2));
+        System.out.println(new PrintNumbers().printNumbers1(2));
+        System.out.println(new PrintNumbers().printNumbers2(2));
     }
 
 

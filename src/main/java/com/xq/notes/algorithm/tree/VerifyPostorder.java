@@ -6,7 +6,7 @@ package com.xq.notes.algorithm.tree;
  * 33.二叉搜索树的后序遍历序列
  * 输入一个后序遍历的数组，判断它是否合法
  */
-public class verifyPostorder {
+public class VerifyPostorder {
     public boolean verifyPostorder(int[] postorder) {
         if(postorder.length<2) return true;
         return cur(postorder,0,postorder.length-1);

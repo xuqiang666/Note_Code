@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Create By  xqz on 2020/10/12.
  */
-public class letterCasePermutation {
+public class LetterCasePermutation {
     public List<String> letterCasePermutation(String S) {
         if(S==null||S.length()==0) return new ArrayList<>();
         List<String> res = new ArrayList<>();

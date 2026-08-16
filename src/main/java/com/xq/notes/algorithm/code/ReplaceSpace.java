@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * Create By  xqz on 2020/9/6.
  */
-public class replaceSpace {
+public class ReplaceSpace {
     class Solution {
         public String replaceSpace(String s) {
             /*使用StringBuilder 避免在循环中对String进行+拼接 */

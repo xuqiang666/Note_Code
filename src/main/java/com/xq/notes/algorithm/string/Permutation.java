@@ -1,4 +1,4 @@
-package com.xq.notes.algorithm.String;
+package com.xq.notes.algorithm.string;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.List;
  * 输入一个字符串，打印出该字符串中字符的所有排列。
  * 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
  */
-public class permutation {
+public class Permutation {
 
     /**
      * 63ms\45mb
@@ -46,7 +46,7 @@ public class permutation {
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         String s = "abcdddd";
-        String[] res = new permutation().permutation2(s);
+        String[] res = new Permutation().permutation2(s);
         for (String str:res){
             System.out.println(str);
         }
@@ -55,7 +55,7 @@ public class permutation {
 
 
     /**
-     * 9 ms	42.8 MB   一位一位固定
+     * 9 ms    42.8 MB   一位一位固定
      */
     public String[] permutation2(String s) {
         if (s == null || s.length() == 0) {

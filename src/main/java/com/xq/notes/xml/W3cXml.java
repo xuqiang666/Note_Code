@@ -75,7 +75,7 @@ public class W3cXml {
         try {
             Tree tree = null;
             tree = getTreeFromXmlFilePath("C:\\Users\\jack\\Desktop\\bug\\马攀\\EMR-SD-17-一般护理记录-T01.xml");
-            //	tree=parseXmlToTree(xmlContent);
+            //    tree=parseXmlToTree(xmlContent);
             buildXmlByTree(tree, "C:\\Users\\jack\\Desktop\\bug\\马攀\\一般护理copy.xml");
 
         } catch (Exception e) {

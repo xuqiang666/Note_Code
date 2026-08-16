@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
  */
 
 
-public class hammingWeight {
+public class HammingWeight {
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;

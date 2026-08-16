@@ -3,65 +3,65 @@ package com.xq.notes.xml;
 import java.io.Serializable;
 
 public class AttributeInfo implements Serializable {
-	
-	/**  
-	* 字段:      字段名称
-	* @Fields serialVersionUID : TODO 
-	*/
-	private static final long serialVersionUID = 1L;
-	
-	
-	private String id;
 
-	//属性名称，如果xmlType=content，name=content
-	private String name;
+    /**
+    * 字段:      字段名称
+    * @Fields serialVersionUID : TODO
+    */
+    private static final long serialVersionUID = 1L;
 
-	private String value;
 
-	//是attribute 还是content，<a b="c"> xmlType=attribute,<a>c</a> xmlType=content
-	private String xmlType;
+    private String id;
 
-	//内部标识符
-	private String innerMark;
+    //属性名称，如果xmlType=content，name=content
+    private String name;
 
-	public String getId() {
-		return id;
-	}
+    private String value;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    //是attribute 还是content，<a b="c"> xmlType=attribute,<a>c</a> xmlType=content
+    private String xmlType;
 
-	public String getName() {
-		return name;
-	}
+    //内部标识符
+    private String innerMark;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getXmlType() {
-		return xmlType;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setXmlType(String xmlType) {
-		this.xmlType = xmlType;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public String getInnerMark() {
-		return innerMark;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-	public void setInnerMark(String innerMark) {
-		this.innerMark = innerMark;
-	}
+    public String getXmlType() {
+        return xmlType;
+    }
+
+    public void setXmlType(String xmlType) {
+        this.xmlType = xmlType;
+    }
+
+    public String getInnerMark() {
+        return innerMark;
+    }
+
+    public void setInnerMark(String innerMark) {
+        this.innerMark = innerMark;
+    }
 
 }

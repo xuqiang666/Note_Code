@@ -5,7 +5,7 @@ package com.xq.notes.algorithm.matrix;
  *  26树的子结构
  * 在二叉树中找子树    递归思想，类似与 MatrixExist
  */
-public class isSubStructure {
+public class IsSubStructure {
     private class TreeNode{
         int val;
         TreeNode left;
